@@ -1,0 +1,51 @@
+@baseUrl=http://localhost:3000
+
+@resourceName=products
+
+# Products
+
+# @name getAll
+GET {{baseUrl}}/{{resourceName}}
+
+###
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?color=yellow&price_lte=500
+
+###
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?name_like=practical
+
+###
+# @name pagination
+GET {{baseUrl}}/{{resourceName}}?_page=1&_limit=2
+
+###
+# @name sort
+GET {{baseUrl}}/{{resourceName}}?_sort=price&_order=desc
+
+###
+
+# @name addNew
+POST {{baseUrl}}/{{resourceName}}
+Content-Type: application/json
+
+{
+    "name" : "Test",
+    "description": "Test Product"
+}
+
+###
+
+# @name update
+PATCH  {{baseUrl}}/{{resourceName}}/6
+Content-Type: application/json
+
+{
+    "name" : "New Test",
+    "description": "New Test Product"
+}
+
+###
+
+# @name remove
+DELETE  {{baseUrl}}/{{resourceName}}/6

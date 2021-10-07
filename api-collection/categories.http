@@ -1,0 +1,35 @@
+@baseUrl=http://localhost:3000
+
+@resourceName=categories
+
+# Categories
+
+# @name getAll
+GET {{baseUrl}}/{{resourceName}}
+
+###
+
+# @name addNew
+POST {{baseUrl}}/{{resourceName}}
+Content-Type: application/json
+
+{
+    "name" : "Test",
+    "description": "Test Category"
+}
+
+###
+
+# @name update
+PATCH  {{baseUrl}}/{{resourceName}}/6
+Content-Type: application/json
+
+{
+    "name" : "New Test",
+    "description": "New Test Category"
+}
+
+###
+
+# @name remove
+DELETE  {{baseUrl}}/{{resourceName}}/6
