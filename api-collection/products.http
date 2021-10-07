@@ -24,25 +24,35 @@ GET {{baseUrl}}/{{resourceName}}?_page=1&_limit=2
 GET {{baseUrl}}/{{resourceName}}?_sort=price&_order=desc
 
 ###
+# @name relationship
+GET {{baseUrl}}/{{resourceName}}/chTisEs?_expand=category
+
+###
 
 # @name addNew
 POST {{baseUrl}}/{{resourceName}}
 Content-Type: application/json
 
 {
-    "name" : "Test",
-    "description": "Test Product"
+    "categoryId": "bcc3b851-d704-4e44-9684-512910931e8a",
+    "name": "Practical Concrete Pizza New",
+    "color": "blue",
+    "price": 322,
+    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+    "thumbnailUrl": "http://placeimg.com/400/400"
 }
 
 ###
 
 # @name update
-PATCH  {{baseUrl}}/{{resourceName}}/6
+@idProduct=chTisEs
+PATCH  {{baseUrl}}/{{resourceName}}/{{idProduct}}
 Content-Type: application/json
 
 {
-    "name" : "New Test",
-    "description": "New Test Product"
+  "name": "Practical Concrete Pizza Update",
+  "color": "black",
+  "price": 325
 }
 
 ###
